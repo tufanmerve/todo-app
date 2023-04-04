@@ -6,13 +6,12 @@ function ContentFooter() {
 
     const { todos, setTodos, filter, setFilter } = useTodo();
     const clearCompleted = () => setTodos((prev) => prev.filter((todo) => !todo.completed));
-    
+
 
     return (
         <footer className="footer">
             <span className="todo-count">
-                <strong>{todos.lenght} </strong>
-                item{todos.lenght > 1 && 's'} left
+                <strong>{todos.lenght}</strong> item{todos.lenght > 1 && "s"} left
             </span>
 
             <ul className="filters">
