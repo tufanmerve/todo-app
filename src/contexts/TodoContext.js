@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const TodoContext = createContext();
-const defaultTodos = localStorage.getItem("todos") || [
+const defaultTodos = JSON.parse(localStorage.getItem("todos")) || [
   {
 
     id: 1,
@@ -16,7 +16,7 @@ const defaultTodos = localStorage.getItem("todos") || [
 
 export const TodoProvider = ({ children }) => {
   const [filter, setFilter] = useState('all')
-  const [todos, setTodos] = useState(JSON.parse(defaultTodos));
+  const [todos, setTodos] = useState(defaultTodos);
 
   const addTodo = (text) =>
     setTodos((prev) => [...prev, { id: uuidv4(), text, completed: false }]);
